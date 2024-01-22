@@ -1,0 +1,56 @@
+# Node.js
+node_modules/
+
+# Build
+dist/
+
+# Logs
+logs/
+*.log
+
+# Runtime data
+pids/
+*.pid
+*.seed
+*.pid.lock
+
+# Optional eslint cache
+.eslintcache
+
+# .env file
+.env
+
+# Remix
+build/
+public/build/
+target/
+public/manifest.json
+
+# macOS
+.DS_Store
+
+# Windows
+Thumbs.db
+ehthumbs.db
+
+# .vscode
+.vscode/
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+Thumbs.db
+
+# Yarn
+.yarn/
+
+# parcel-bundler
+.cache/
+dist/
+.cache-loader/
