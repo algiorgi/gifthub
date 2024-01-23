@@ -8,6 +8,8 @@
     "dev": "remix dev --manual",
     "start": "remix-serve ./build/index.js",
     "typecheck": "tsc",
+    "playwright": "playwright test",
+    "playwright:ui": "npm run playwright -- --ui",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
