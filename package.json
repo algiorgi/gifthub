@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "build": "remix build",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
@@ -13,6 +14,7 @@
     "@remix-run/node": "^2.5.1",
     "@remix-run/react": "^2.5.1",
     "@remix-run/serve": "^2.5.1",
+    "@remix-run/vercel": "^1.19.3",
     "@vercel/remix": "^2.5.1",
     "isbot": "^4.4.0",
     "react": "^18.2.0",
