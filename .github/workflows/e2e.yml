@@ -1,0 +1,17 @@
+name: E2E Tests
+
+on:
+  deployment_status:
+jobs:
+  run-e2es:
+    if: github.event_name == 'deployment_status' && github.event.deployment_status.state == 'success'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Instalar dependencias
+        run: npm ci && npx playwright install --with-deps
+      - name: Correr e2e
+        run: npm run playwright
+        env:
+          CI: true
+          BASE_URL: ${{ github.event.deployment_status.environment_url }}
