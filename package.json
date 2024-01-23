@@ -5,6 +5,8 @@
   "main": "index.js",
   "scripts": {
     "build": "remix build",
+    "dev": "remix dev --manual",
+    "start": "remix-serve ./build/index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
