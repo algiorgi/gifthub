@@ -4,7 +4,7 @@ on:
     branches-ignore:
       - main
 jobs:
-  Deploy-Preview:
+  CI:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -12,7 +12,9 @@ jobs:
         run: npm ci
       - name: Build app
         run: npm run build
-      - name: Correr Tests End To End
+      - name: Instalar Playwright
+        run: npx playwright install
+      - name: Correr Playwright
         run: npm run playwright
         env:
           CI: true
