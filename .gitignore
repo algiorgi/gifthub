@@ -55,3 +55,7 @@ Thumbs.db
 dist/
 .cache-loader/
 .vercel
+
+# playwright
+test-results/
+playwright-report/
