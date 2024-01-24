@@ -1,4 +1,4 @@
-name: Desplegar a preview en Vercel
+name: Integracion Continua
 env:
   VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
   VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
