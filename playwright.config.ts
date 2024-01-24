@@ -8,7 +8,7 @@ const config: PlaywrightTestConfig = {
     workers: process.env.CI ? 1 : undefined,
     reporter: 'html',
     use: {
-        baseURL: process.env.CI ? process.env.BASE_URL : 'http://127.0.0.1:3000',
+        baseURL: 'http://127.0.0.1:3000',
         screenshot: 'only-on-failure',
     },
     projects: [
