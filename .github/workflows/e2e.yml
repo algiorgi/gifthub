@@ -1,5 +1,4 @@
 name: E2E Tests
-
 on:
   deployment_status:
 jobs:
