@@ -1,6 +1,6 @@
-import { defineConfig, devices } from '@playwright/test';
+import { PlaywrightTestConfig, defineConfig, devices } from '@playwright/test';
 
-export default defineConfig({
+const config: PlaywrightTestConfig = {
     testDir: 'e2e',
     fullyParallel: true,
     forbidOnly: !!process.env.CI,
@@ -17,9 +17,14 @@ export default defineConfig({
             use: { ...devices['Desktop Chrome'] },
         },
     ],
-    webServer: {
+}
+
+if(!process.env.CI) {
+    config.webServer = {
         command: 'npm run start',
         url: 'http://127.0.0.1:3000',
-        reuseExistingServer: !process.env.CI,
-    },
-});
+        reuseExistingServer: false,
+    }
+}
+
+export default config;
