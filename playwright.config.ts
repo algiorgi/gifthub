@@ -1,4 +1,4 @@
-import { PlaywrightTestConfig, defineConfig, devices } from '@playwright/test';
+import { PlaywrightTestConfig, devices } from '@playwright/test';
 
 const config: PlaywrightTestConfig = {
     testDir: 'e2e',
@@ -8,7 +8,7 @@ const config: PlaywrightTestConfig = {
     workers: process.env.CI ? 1 : undefined,
     reporter: 'html',
     use: {
-        baseURL: process.env.CI ? process.env.BASE_URL : 'http://127.0.0.1:3000',
+        baseURL: 'http://127.0.0.1:3000',
         screenshot: 'only-on-failure',
     },
     projects: [
@@ -17,13 +17,10 @@ const config: PlaywrightTestConfig = {
             use: { ...devices['Desktop Chrome'] },
         },
     ],
-}
-
-if(!process.env.CI) {
-    config.webServer = {
+    webServer: {
         command: 'npm run start',
         url: 'http://127.0.0.1:3000',
-        reuseExistingServer: false,
+        reuseExistingServer: !process.env.CI
     }
 }
 
