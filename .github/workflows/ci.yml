@@ -8,6 +8,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
+      - name: Instalar dependencias
+        run: npm ci
       - name: Build app
         run: npm run build
       - name: Correr Tests End To End
