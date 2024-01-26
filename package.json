@@ -9,7 +9,8 @@
     "start": "remix-serve ./build/index.js",
     "typecheck": "tsc",
     "playwright": "playwright test",
-    "playwright:ui": "npm run playwright -- --ui"
+    "playwright:ui": "npm run playwright -- --ui",
+    "playwright:report": "playwright show-report"
   },
   "keywords": [],
   "author": "",
