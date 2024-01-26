@@ -46,3 +46,20 @@ Para ejecutar las pruebas:
     ```
     $ npm run playwright:report
     ```
+
+# CI/CD
+
+La aplicación esta hosteada en [Vercel](https://vercel.com/)
+
+## Proceso
+
+El proceso se ejecuta mediante githubs actions
+
+1. Cada commit a una rama que no sea **main** dispara el proceso de CI.
+    > Ver archivo **.github/workflows/ci.yml**
+
+1. Cuando se arma un **Pull Request** se despliega una versión *preview* de la applicación.
+    > Ver archivo **.github/workflows/preview.yml**
+
+1. Cuando se mergea a main (desde un PR), se despliega una versión productiva de la applicación.
+    > Ver archivo **.github/workflows/cd.yml**
