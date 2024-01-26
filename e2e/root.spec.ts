@@ -1,6 +1,6 @@
 import { test, expect } from '@playwright/test';
 
-test('titulo de bienvenida', async ({page}) => {
+test('titulo de la app', async ({page}) => {
     await page.goto('/');
-    await expect(page.getByRole('heading', { name: 'Hello World' })).toBeVisible();
+    await expect(page.getByRole('heading', { name: 'Gitfhub' })).toBeVisible();
 });

@@ -3,6 +3,7 @@ import type { LinksFunction } from "@vercel/remix";
 import {
   Links,
   LiveReload,
+  Meta,
   Outlet,
 } from "@remix-run/react";
 
@@ -17,10 +18,11 @@ export default function App() {
   return (
     <html>
       <head>
-        <Links/>
+        <Meta />
+        <Links />
       </head>
       <body>
-        <h1 className="text-6xl font-bold text-red-700">Hello World</h1>
+        <h1 className="text-6xl font-bold text-red-700">Gitfhub</h1>
         <Outlet />
         <LiveReload />
       </body>
