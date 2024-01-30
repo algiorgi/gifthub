@@ -3,7 +3,12 @@
         {
             "request": {
                 "method": "POST",
-                "url": "/api/v1/eventos"
+                "url": "/api/v1/eventos",
+                "bodyPatterns": [
+                    {
+                        "equalToJson": "{\"nombre_evento\": \"Navidad 2024\"}"
+                    }
+                ]
             },
             "response": {
                 "status": 200,
