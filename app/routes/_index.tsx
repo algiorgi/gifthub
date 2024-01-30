@@ -3,12 +3,11 @@ import type { ActionFunctionArgs } from "@vercel/remix";
 import type { EventoCreadoResponse } from "~/services.server";
 
 import { Form, redirect } from "@remix-run/react";
-import { crearEvento } from "~/services.server";
+import { crearEvento, mapearEvento } from "~/services.server";
 
 export const action = async ({ params, request }: ActionFunctionArgs) => {
   const formData = await request.formData();
-  const crearEventoRequest = Object.fromEntries(formData);
-  const evento: EventoCreadoResponse = await crearEvento(crearEventoRequest);
+  const evento: EventoCreadoResponse = await crearEvento(mapearEvento(formData));
   return redirect(`/eventos/${evento.id}`);
 };
 
@@ -35,6 +34,25 @@ export default function IndexRoute() {
                 placeholder="ej. Cumpleaños tio Cosa"
                 className="w-full px-3 py-2 placeholder-gray-300 border border-gray-300 rounded-md  focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300"
               />
+            </div>
+            <div className="mb-6">
+              <label className="block mb-2 text-sm text-gray-600">Organizador</label>
+              <div className="grid grid-flow-col gap-4 justify-stretch">
+                <input
+                  data-testid="input-nombre-organizador"
+                  type="text"
+                  name="nombre_organizador"
+                  placeholder="ej. Tio Lucas"
+                  className="px-3 py-2 placeholder-gray-300 border border-gray-300 rounded-md  focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300"
+                />
+                <input
+                  data-testid="input-email-organizador"
+                  type="email"
+                  name="email_organizador"
+                  placeholder="ej. tiolucas@familiaadams.com"
+                  className="px-3 py-2 placeholder-gray-300 border border-gray-300 rounded-md  focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300"
+                />
+              </div>
             </div>
             <div className="mb-6">
               <button

@@ -6,7 +6,7 @@
                 "url": "/api/v1/eventos",
                 "bodyPatterns": [
                     {
-                        "equalToJson": "{\"nombre_evento\": \"Navidad 2024\"}"
+                        "equalToJson": "{\"nombre_evento\": \"Navidad 2024\", \"organizador\": {\"nombre\": \"Ale\", \"email\": \"ale@gmail.com\"}}"
                     }
                 ]
             },
