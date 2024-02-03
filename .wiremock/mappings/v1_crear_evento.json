@@ -5,7 +5,7 @@
     "url" : "/api/v1/eventos",
     "method" : "POST",
     "bodyPatterns" : [ {
-      "equalToJson" : "{\r\n    \"nombre_evento\": \"Navidad 2024\",\r\n    \"organizador\" : {\r\n        \"nombre\" : \"Ale\",\r\n        \"email\" : \"ale@gmail.com\"\r\n    },\r\n    \"participantes\": [\r\n        {\r\n            \"nombre\" : \"Dani\",\r\n            \"email\" : \"dani@gmail.com\"\r\n        },\r\n        {\r\n            \"nombre\" : \"Negrita\",\r\n            \"email\" : \"negrita@gmail.com\"\r\n        }\r\n    ]\r\n}",
+      "equalToJson" : "{\r\n    \"nombre_evento\": \"Navidad 2024\",\r\n    \"organizador\" : {\r\n        \"nombre\" : \"Ale\",\r\n        \"email\" : \"ale@gmail.com\"\r\n    },\r\n    \"participantes\": [\r\n        {\r\n            \"nombre\" : \"Dani\",\r\n            \"email\" : \"dani@gmail.com\"\r\n        },\r\n        {\r\n            \"nombre\" : \"Negrita\",\r\n            \"email\" : \"negrita@gmail.com\"\r\n        }\r\n    ],\"monto_maximo\": 25000 \r\n}",
       "ignoreArrayOrder" : true,
       "ignoreExtraElements" : true
     } ]

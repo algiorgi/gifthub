@@ -4,7 +4,8 @@ export type CrearEventoRequest = {
         nombre: string,
         email: string,
     },
-    participantes?: any[]
+    participantes?: any[],
+    monto_maximo: Number
 }
 
 export type EventoCreadoResponse = {
@@ -27,6 +28,7 @@ export function mapearEvento(form: FormData): CrearEventoRequest {
     const nombreEvento: string = form.get('nombre_evento')?.toString() ?? "";
     const nombreOrganizador = form.get('nombre_organizador')?.toString() ?? "";
     const emailOrganizador = form.get('email_organizador')?.toString() ?? "";
+    const montoMaximo = Number(form.get('monto_maximo')?.valueOf() ?? "0");
     const nombresDeParticipantes = form.getAll('participante_nombre');
     const emailsDeParticipantes = form.getAll('participante_email');
     const participantes = [];
@@ -40,6 +42,7 @@ export function mapearEvento(form: FormData): CrearEventoRequest {
             nombre: nombreOrganizador,
             email: emailOrganizador
         },
-        participantes: participantes
+        participantes: participantes,
+        monto_maximo: montoMaximo
     }
 }
