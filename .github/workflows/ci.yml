@@ -7,21 +7,19 @@ jobs:
   CI:
     runs-on: ubuntu-latest
 
-    services:
-      wiremock:
-        image: wiremock/wiremock
-        ports:
-          - 8080:8080
-        options: >-
-          --health-cmd "curl --fail http://localhost:8080/__admin/health" --health-interval 10s --health-timeout 5s --health-retries 5
-          -v ${{ github.workspace }}/.wiremock/mappings:/home/wiremock/mappings
-          -v ${{ github.workspace }}/.wiremock/__files:/home/wiremock/__files
-
     steps:
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
         with:
           node-version: 18
+      - name: Levantar wiremock
+        run: |
+          docker run -d --name wiremock -p 8080:8080 \
+            --health-cmd "curl --fail http://localhost:8080/__admin/health" \
+            --health-interval 10s --health-timeout 5s --health-retries 5 \
+            -v ${{ github.workspace }}/data/.wiremock/mappings:/home/wiremock/mappings \
+            -v ${{ github.workspace }}/data/.wiremock/__files:/home/wiremock/__files \
+            wiremock/wiremock:2.31.0
       - name: Instalar dependencias
         run: npm ci
       - name: Build app
