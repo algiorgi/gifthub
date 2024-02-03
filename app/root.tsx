@@ -5,6 +5,7 @@ import {
   LiveReload,
   Meta,
   Outlet,
+  Scripts,
 } from "@remix-run/react";
 
 import styles from "./tailwind.css";
@@ -25,6 +26,7 @@ export default function App() {
         <h1 className="text-6xl font-bold text-red-700">Gitfhub</h1>
         <Outlet />
         <LiveReload />
+        <Scripts />
       </body>
     </html>
   );
