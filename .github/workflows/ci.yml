@@ -22,7 +22,7 @@ jobs:
       - name: Instalar Playwright
         run: npx playwright install
       - name: Levantar wiremock
-        run: java -jar .wiremock/wiremock-standalone-3.3.1.jar
+        run: java -jar .wiremock/wiremock-standalone-3.3.1.jar &
       - name: Correr Playwright
         run: npm run playwright
         env:
