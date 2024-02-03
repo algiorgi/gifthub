@@ -9,7 +9,7 @@ jobs:
 
     services:
       wiremock:
-        image: rodolfobandeira/wiremock:2.31.0
+        image: wiremock/wiremock
         ports:
           - 8080:8080
 
