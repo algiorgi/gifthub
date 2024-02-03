@@ -3,7 +3,8 @@ export type CrearEventoRequest = {
     organizador?: {
         nombre: string,
         email: string,
-    }
+    },
+    participantes?: any[]
 }
 
 export type EventoCreadoResponse = {
@@ -26,11 +27,19 @@ export function mapearEvento(form: FormData): CrearEventoRequest {
     const nombreEvento: string = form.get('nombre_evento')?.toString() ?? "";
     const nombreOrganizador = form.get('nombre_organizador')?.toString() ?? "";
     const emailOrganizador = form.get('email_organizador')?.toString() ?? "";
+    const nombresDeParticipantes = form.getAll('participante_nombre');
+    const emailsDeParticipantes = form.getAll('participante_email');
+    const participantes = [];
+    for (let i = 0; i < nombresDeParticipantes.length; i++) {
+        participantes.push({nombre: nombresDeParticipantes[i].valueOf(), email: emailsDeParticipantes[i].valueOf()});
+    }
+
     return {
         nombre_evento: nombreEvento,
         organizador: {
             nombre: nombreOrganizador,
             email: emailOrganizador
-        }
+        },
+        participantes: participantes
     }
 }
