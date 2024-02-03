@@ -1,19 +1,20 @@
 {
-    "mappings": [
-        {
-            "request": {
-                "method": "POST",
-                "url": "/api/v1/eventos",
-                "bodyPatterns": [
-                    {
-                        "equalToJson": "{\"nombre_evento\": \"Navidad 2024\", \"organizador\": {\"nombre\": \"Ale\", \"email\": \"ale@gmail.com\"}}"
-                    }
-                ]
-            },
-            "response": {
-                "status": 200,
-                "bodyFileName": "v1_evento_creado.json"
-            }
-        }
-    ]
+  "id" : "1dd3aaf6-2983-4708-9332-ae444db7e96f",
+  "name" : "v1-crear-evento",
+  "request" : {
+    "url" : "/api/v1/eventos",
+    "method" : "POST",
+    "bodyPatterns" : [ {
+      "equalToJson" : "{\r\n    \"nombre_evento\": \"Navidad 2024\",\r\n    \"organizador\" : {\r\n        \"nombre\" : \"Ale\",\r\n        \"email\" : \"ale@gmail.com\"\r\n    },\r\n    \"participantes\": [\r\n        {\r\n            \"nombre\" : \"Dani\",\r\n            \"email\" : \"dani@gmail.com\"\r\n        },\r\n        {\r\n            \"nombre\" : \"Negrita\",\r\n            \"email\" : \"negrita@gmail.com\"\r\n        }\r\n    ]\r\n}",
+      "ignoreArrayOrder" : true,
+      "ignoreExtraElements" : true
+    } ]
+  },
+  "response": {
+    "status": 200,
+    "bodyFileName": "v1_evento_creado.json"
+  },
+  "uuid" : "1dd3aaf6-2983-4708-9332-ae444db7e96f",
+  "persistent" : true,
+  "insertionIndex" : 0
 }
