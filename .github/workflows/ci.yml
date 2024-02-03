@@ -23,8 +23,10 @@ jobs:
       - name: Obtnener IP de Wiremock
         id: wiremock_ip
         run: |
-          WIREMOCK_IP=$(docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' wiremock)
-          echo "La IP de WireMock es: $WIREMOCK_IP"
+          {
+            WIREMOCK_IP=$(docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' wiremock)
+            echo "WIREMOCK_IP=$WIREMOCK_IP"
+          } >> "$GITHUB_OUTPUT"
       - name: Instalar dependencias
         run: npm ci
       - name: Build app
@@ -43,6 +45,8 @@ jobs:
           retention-days: 1
       - uses: dedene/curl@v1
         if: failure()
+        env:
+          HOST: ${{ steps.wiremock_ip.outputs.WIREMOCK_IP }}
         with:
-          url: http://${{ steps.wiremock_ip.outputs.WIREMOCK_IP }}:8080/__admin/requests
+          url: http://$HOST:8080/__admin/requests
           args: -v
