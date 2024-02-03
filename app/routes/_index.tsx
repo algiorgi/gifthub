@@ -72,7 +72,7 @@ export default function IndexRoute() {
   const listaDeParticipantes =
   <div className="mb-6">
     <ul role="list" className="p-1 divide-y divide-slate-200">
-      {participantes.map((participante: Participante, indice: number ) => (
+      {participantes.map((participante: Participante) => (
         <li key={participante.email} className="flex py-4 first:pt-0 last:pb-0">
           <input type="hidden" name={`participante_nombre`} value={participante.nombre}></input>
           <input type="hidden" name={`participante_email`} value={participante.email}></input>
