@@ -12,6 +12,10 @@ jobs:
         image: wiremock/wiremock
         ports:
           - 8080:8080
+        options: >-
+          --health-cmd "curl --fail http://localhost:8080/__admin/health" --health-interval 10s --health-timeout 5s --health-retries 5
+          -v "$(pwd)/.wiremock/mappings:/home/wiremock/mappings"
+          -v "$(pwd)/.wiremock/__files:/home/wiremock/__files"
 
     steps:
       - uses: actions/checkout@v3
