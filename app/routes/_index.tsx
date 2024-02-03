@@ -2,7 +2,7 @@ import type { ActionFunctionArgs } from "@vercel/remix";
 
 import type { EventoCreadoResponse } from "~/services.server";
 
-import { Form, redirect, useFetcher } from "@remix-run/react";
+import { Form, redirect } from "@remix-run/react";
 import { crearEvento, mapearEvento } from "~/services.server";
 import { useState } from "react";
 
