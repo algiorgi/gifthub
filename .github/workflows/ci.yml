@@ -11,12 +11,18 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: 18
+      - uses: actions/setup-java@v4
+        with:
+          distribution: 'temurin'
+          java-version: '11'
       - name: Instalar dependencias
         run: npm ci
       - name: Build app
         run: npm run build
       - name: Instalar Playwright
         run: npx playwright install
+      - name: Levantar wiremock
+        run: java -jar .wiremock/wiremock-standalone-3.3.1.jar
       - name: Correr Playwright
         run: npm run playwright
         env:
