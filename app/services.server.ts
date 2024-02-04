@@ -12,7 +12,7 @@ export type EventoCreadoResponse = {
     id: string
 };
 
-const URL_BASE: string = 'http://localhost:8080/api/v1/';
+const URL_BASE: string = process.env.GIFTHUB_API_URL + "/v1/";
 
 export async function crearEvento(request: CrearEventoRequest): Promise<EventoCreadoResponse> {
     return fetch(URL_BASE + 'eventos', {
